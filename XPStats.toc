@@ -1,0 +1,9 @@
+## Author: iAmLiightsky
+## Interface: 90105
+## Name: XPStats
+## Notes: Tracks the amount of experience you earn in each zone.
+## SavedVariablesPerCharacter: XPStatsPDB
+## Title: XPStats
+## Version: 1.0.0
+
+XPStats.lua
