@@ -118,3 +118,20 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetCurrentMap()
 	end
 end)
+
+SLASH_XPStats1 = "/xp"
+SlashCmdList["XPStats"] = function(command, editbox)
+	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
+	if not command or command == "" then
+		print("Please enter a zone name.")
+	elseif command == "s" and arguments ~= "" then
+		local totalExperience = 0
+		for questId, experience in pairs(XPStatsPDB[arguments]["Quests"]) do
+			totalExperience = totalExperience + experience
+		end
+		for unitName, experience in pairs(XPStatsPDB[arguments]["Creatures"]) do
+			totalExperience = totalExperience + experience
+		end
+		print("Total experience earned in |cffFFFF00" .. arguments .. "|r is " .. totalExperience .. ".")
+	end
+end
